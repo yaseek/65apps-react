@@ -7,11 +7,13 @@
   var Button = React.createClass({
   
     render: function() {
-      console.log('BUTTON', this.props);
       return (
-        <button className={"btn btn-" + this.props.type} >
-          {(this.props.glyph) ? <Glyph type={this.props.glyph}/> : ''}
-          {this.props.text}
+        <button className={[
+          "btn", 
+          "btn-" + this.props.type,
+          this.props.className
+        ].join(' ')} onClick={this.props.onClick}>
+          {this.props.children}
         </button>
       );
     }

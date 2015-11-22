@@ -1,57 +1,68 @@
-# 65apps-react
+Тестовое задание
+================
 
-Managing persons with reactjs flux environment
+## Задача выполнена с использованием фреймворка `Grunt.js` и шаблона проектирования `flux`.
 
-## Getting Started
-### On the server
-Install the module with: `npm install 65apps-react`
+#### Постановка задачи:
 
-```javascript
-var _65apps_react = require('65apps-react');
-_65apps_react.awesome(); // "awesome"
+    "Реализовать backbone приложение, оперирующее сущностями Person, 
+    набор полей: FIO, Age, Phone, Email. 
+    Приложение должно отображать сущности в виде списка, создавать, 
+    редактировать и удалять. 
+    Реализация возможна с использованием backbone, или angular фреймворков."
+
+Установка
+---------
+
+Установка предполагает наличие на сервере установленного пакета `nodejs`, а также менеджера пакетов `bower`
+и системы управления заданиями `grunt`.
+
+Разработка и тестирование производились в среде `NodeJS v.4.2.2`.
+
+### Установка менеджера пакетов `bower` производится командой 
+
+```shell
+npm install -g bower
 ```
 
-### In the browser
-Download the [production version][min] or the [development version][max].
+### Установка системы `grunt` производится командой
 
-[min]: https://raw.github.com/andrew/65apps-react/master/dist/65apps-react.min.js
-[max]: https://raw.github.com/andrew/65apps-react/master/dist/65apps-react.js
-
-In your web page:
-
-```html
-<script src="dist/65apps-react.min.js"></script>
-<script>
-awesome(); // "awesome"
-</script>
+```shell
+npm install -g grunt grunt-cli
 ```
 
-In your code, you can attach 65apps-react's methods to any object.
+### Установка репозитория приложения
 
-```html
-<script>
-var exports = Bocoup.utils;
-</script>
-<script src="dist/65apps-react.min.js"></script>
-<script>
-Bocoup.utils.awesome(); // "awesome"
-</script>
+1. Клонируем репозиторий
+
+```shell
+git clone https://github.com/yaseek/65apps.git
 ```
 
-## Documentation
-_(Coming soon)_
+2. В папке проекта выполнить следующие команды
 
-## Examples
-_(Coming soon)_
+```shell
+    sudo npm install
 
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+    bower install
+    
+    cd bower_components/bootstrap
+    
+    sudo npm install
+    
+    grunt
+```
 
-_Also, please don't edit files in the "dist" subdirectory as they are generated via Grunt. You'll find source code in the "lib" subdirectory!_
+Этими действиями будет выполнена установка требуемого окружения сервера
 
-## Release History
-_(Nothing yet)_
+Запуск сервера
+--------------
 
-## License
-Copyright (c) 2015 Andrew Babkin  
-Licensed under the MIT license.
+Запуск сервера выполняется командой
+
+```shell
+npm start
+```
+
+При этом приложение будет доступен на порту 8080 сервера:
+`http://localhost:8080`

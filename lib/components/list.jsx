@@ -5,7 +5,7 @@
 
   // Local modules
   var personStore = require('../stores/persons'),
-      actions = require('../actions');
+      actions = require('../api/actions');
 
   // Local components
   var Person = require('./person.jsx'),
@@ -23,28 +23,36 @@
     },
 
     listChanged: function () {
-      console.log('LIST CHANGED');
+      var items = personStore.get();
       this.forceUpdate();
     },
 
     addPerson: function () {
-      actions.addPerson(personStore.itemTemplate);
+      actions.addPerson();
     },
-  
+
     render: function() {
+      var self = this;
       var items = personStore.get();
-      console.log('ITEMS', items);
+
+      var persons = items.map(function(item, i) {
+        item.id = i;
+        return <Person key={i} {...item} />;
+      });
+
       return (
         <div>
-          <div>
-            <Button type="primary" 
-              glyph="plus" text="Добавить" onClick={this.addPerson} />
-          </div>
-          <div>
-            {items.map(function(item, i) {
-              return <Person key={i} {...item}/>;
-            })}
-          </div>
+          <h4>
+            <span className="col-sm-2">Список: </span>
+            <Button type="btn btn-default btn-xs" 
+              onClick={this.addPerson}>
+              <Glyph type="plus" />&nbsp;
+              Добавить персону
+            </Button>
+          </h4>
+          <ul>
+            {persons}
+          </ul>
         </div>
       );
     }

@@ -25,8 +25,7 @@
     "node": "4.2.2"
   },
   "scripts": {
-    "test": "grunt nodeunit",
-    "start": "node lib/65apps-react.js"
+    "start": "node server.js"
   },
   "devDependencies": {
     "babel-preset-react": "^6.1.18",

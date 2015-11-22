@@ -5,9 +5,12 @@
   var Glyph = React.createClass({
   
     render: function() {
-      console.log('GLYPH', this.props);
       return (
-        <span className={"glyphicon glyphicon-" + this.props.type} />
+        <span className={[
+          "glyphicon", 
+          "glyphicon-" + this.props.type,
+          this.props.className
+          ].join(' ')} />
       );
     }
   
